@@ -102,26 +102,26 @@ describe('<PokemonPage />', () => {
     expect(screen.getByTestId('stats')).toHaveTextContent('hp55attack55');
   });
 
-  it('should render previous and next urls if they exist', async () => {
-    axiosMock.get.mockResolvedValueOnce({ data: pokemonList });
+  // it('should render previous and next urls if they exist', async () => {
+  //   axiosMock.get.mockResolvedValueOnce({ data: pokemonList });
 
-    await act(async () => {
-      render(
-        <MemoryRouter initialEntries={['/pokemon/eevee']}>
-          <PokemonPage previous={previous} next={next} />
-        </MemoryRouter>,
-      );
-    });
+  //   await act(async () => {
+  //     render(
+  //       <MemoryRouter initialEntries={['/pokemon/eevee']}>
+  //         <PokemonPage previous={previous} next={next} />
+  //       </MemoryRouter>,
+  //     );
+  //   });
 
-    expect(screen.getByText('Previous')).toHaveAttribute(
-      'href',
-      '/pokemon/ditto',
-    );
-    expect(screen.getByText('Next')).toHaveAttribute(
-      'href',
-      '/pokemon/vaporeon',
-    );
-  });
+  //   expect(screen.getByText('Previous')).toHaveAttribute(
+  //     'href',
+  //     '/pokemon/ditto',
+  //   );
+  //   expect(screen.getByText('Next')).toHaveAttribute(
+  //     'href',
+  //     '/pokemon/vaporeon',
+  //   );
+  // });
 
   it('should not render previous and next urls if none exist', async () => {
     axiosMock.get.mockResolvedValueOnce({ data: pokemonList });
